@@ -39,17 +39,23 @@ button:hover {
   background-color: #555;
 }
 
-/* Sections */
-main section {
-  margin-bottom: 2rem;
+/* Survival Article Styles */
+.survival-content {
+  margin: 20px auto;
+  max-width: 900px;
+  line-height: 1.8;
   padding: 1rem;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.dark main section {
-  background-color: #1e1e1e;
+.survival-content h2 {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.survival-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 /* Links */
@@ -62,25 +68,15 @@ a {
   color: #66ccff;
 }
 
-/* Hacker Button Section */
-.hacker-tease {
-  text-align: center;
+/* Footer */
+footer {
   margin-top: 3rem;
+  text-align: center;
 }
 
-.hacker-tease button {
-  background-color: #ff4444;
-  color: white;
-  font-weight: bold;
-  padding: 14px 20px;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.hacker-tease button:hover {
-  background-color: #cc0000;
+footer a {
+  color: #0066cc;
+  text-decoration: underline;
 }
 
 /* Responsive Design */
