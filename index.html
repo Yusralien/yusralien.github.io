@@ -11,6 +11,9 @@
     <h1>⚙️ My Mechanical Engineering Life</h1>
     <p>By Yusralien | Student, Builder, Dreamer</p>
     <button id="toggle-mode">🌙 Toggle Dark Mode</button>
+    <!-- Add inside <header> (below the dark mode button) -->
+<button id="hacker-portal">🚫 Don't click here</button>
+
   </header>
 
   <main>
@@ -58,3 +61,16 @@
   </script>
 </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("toggle-mode").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+
+    document.getElementById("hacker-portal").addEventListener("click", () => {
+      window.location.href = "cyber.html";
+    });
+  });
+</script>
+
