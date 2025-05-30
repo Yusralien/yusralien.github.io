@@ -3,80 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Access Granted</title>
-  <style>
-    body {
-      background: #000;
-      color: #00ff00;
-      font-family: "Courier New", Courier, monospace;
-      padding: 2rem;
-      animation: flicker 0.15s infinite;
-    }
-
-    h1 {
-      font-size: 2rem;
-      text-shadow: 0 0 5px #00ff00;
-    }
-
-    .terminal {
-      background: #001100;
-      padding: 2rem;
-      border-radius: 8px;
-      border: 2px solid #00ff00;
-      margin-top: 2rem;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 18px;
-      background: #00ff00;
-      animation: blink 1s step-start infinite;
-    }
-
-    a {
-      color: #00ff00;
-      text-decoration: underline;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.98; }
-    }
-  </style>
+  <title>Access Granted - Cybersecurity</title>
+  <link rel="stylesheet" href="cyber-style.css">
 </head>
 <body>
-  <h1>💻 Access Granted: Welcome to My Cybersecurity Life</h1>
+  <header>
+    <h1>💻 Access Granted: Welcome to My Cybersecurity Life</h1>
+    <p>Red Team | White Hat Hacking | Cyber Operations</p>
+  </header>
 
-  <div class="terminal">
-    <p><strong>log@cyber_shell:</strong>~$ whoami</p>
-    <p>Yusralien - aspiring white hat hacker</p>
+  <section class="terminal">
+    <div class="command-line">
+      <p><strong>log@cyber_shell:</strong>~$ whoami</p>
+      <p>Yusralien - Red Teamer | Ethical Hacker</p>
+    </div>
 
-    <p><strong>log@cyber_shell:</strong>~$ cat mission.txt</p>
-    <p>Protect. Analyze. Break, then fix. That’s the game.</p>
+    <div class="command-line">
+      <p><strong>log@cyber_shell:</strong>~$ cat mission.txt</p>
+      <p>Mission: Penetration Testing, Cyber Defense, and Network Exploits</p>
+    </div>
 
-    <p><strong>log@cyber_shell:</strong>~$ skills --list</p>
-    <ul>
-      <li>🛡️ Network Scanning</li>
-      <li>🕵️ Ethical Hacking</li>
-      <li>🔐 Encryption</li>
-      <li>📁 Forensics</li>
-    </ul>
+    <div class="command-line">
+      <p><strong>log@cyber_shell:</strong>~$ skills --list</p>
+      <ul>
+        <li>🛡️ Network Pen Testing</li>
+        <li>🔍 Vulnerability Assessment</li>
+        <li>💻 Exploit Development</li>
+        <li>🔐 Cyber Defense & Encryption</li>
+      </ul>
+    </div>
 
-    <p><strong>log@cyber_shell:</strong>~$ <span class="cursor"></span></p>
-  </div>
+    <div class="command-line">
+      <p><strong>log@cyber_shell:</strong>~$ <span class="cursor"></span></p>
+    </div>
+  </section>
 
-  <p><a href="index.html">← Exit Terminal</a></p>
-  <h2>💾 EliteGhostV3 Journey</h2>
-  <p>
-    View my full journey and progress logs here:
-    <a href="https://github.com/Yusralien/Journey-of-eliteghostv3" target="_blank">
-      github.com/Yusralien/Journey-of-eliteghostv3
-    </a>
-  </p>
+  <footer>
+    <p><a href="index.html">← Exit Terminal</a></p>
+    <p>View my full journey and progress logs on <a href="https://github.com/Yusralien/Journey-of-eliteghostv3" target="_blank">GitHub</a></p>
+  </footer>
 </body>
 </html>
