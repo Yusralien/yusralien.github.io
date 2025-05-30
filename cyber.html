@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Granted</title>
+  <style>
+    body {
+      background: #000;
+      color: #00ff00;
+      font-family: "Courier New", Courier, monospace;
+      padding: 2rem;
+      animation: flicker 0.15s infinite;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    .terminal {
+      background: #001100;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 2px solid #00ff00;
+      margin-top: 2rem;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: #00ff00;
+      animation: blink 1s step-start infinite;
+    }
+
+    a {
+      color: #00ff00;
+      text-decoration: underline;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.98; }
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 Access Granted: Welcome to My Cybersecurity Life</h1>
+
+  <div class="terminal">
+    <p><strong>log@cyber_shell:</strong>~$ whoami</p>
+    <p>Yusralien - aspiring white hat hacker</p>
+
+    <p><strong>log@cyber_shell:</strong>~$ cat mission.txt</p>
+    <p>Protect. Analyze. Break, then fix. That’s the game.</p>
+
+    <p><strong>log@cyber_shell:</strong>~$ skills --list</p>
+    <ul>
+      <li>🛡️ Network Scanning</li>
+      <li>🕵️ Ethical Hacking</li>
+      <li>🔐 Encryption</li>
+      <li>📁 Forensics</li>
+    </ul>
+
+    <p><strong>log@cyber_shell:</strong>~$ <span class="cursor"></span></p>
+  </div>
+
+  <p><a href="index.html">← Exit Terminal</a></p>
+</body>
+</html>
