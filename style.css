@@ -1,4 +1,4 @@
-/* General reset */
+/* Reset and base styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -32,7 +32,7 @@ button {
   cursor: pointer;
   background-color: #333;
   color: #fff;
-  transition: all 0.3s ease;
+  transition: background 0.3s;
 }
 
 button:hover {
@@ -62,10 +62,10 @@ a {
   color: #66ccff;
 }
 
-/* Hacker button */
+/* Hacker Button Section */
 .hacker-tease {
-  margin-top: 4rem;
   text-align: center;
+  margin-top: 3rem;
 }
 
 .hacker-tease button {
@@ -83,7 +83,7 @@ a {
   background-color: #cc0000;
 }
 
-/* Responsive styles */
+/* Responsive Design */
 @media (max-width: 600px) {
   body {
     padding: 1rem;
