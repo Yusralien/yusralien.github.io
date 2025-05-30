@@ -23,7 +23,7 @@
 
     <section class="vlogs">
       <article class="vlog-post">
-        <h3>🔧 CNC Machine Training</h3>
+        <h3><a href="cnc.html">🔧 CNC Machine Training</a></h3>
         <p>My first time operating a CNC machine. Learned about G-code and precision cutting. 💥</p>
       </article>
 
@@ -50,9 +50,10 @@
   </footer>
 
   <script>
-    const toggleBtn = document.getElementById("toggle-mode");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("toggle-mode").addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+      });
     });
   </script>
 </body>
