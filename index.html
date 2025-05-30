@@ -10,6 +10,7 @@
   <header>
     <h1>⚙️ My Mechanical Engineering Life</h1>
     <p>By Yusralien | Student, Builder, Dreamer</p>
+    <button id="toggle-mode">🌙 Toggle Dark Mode</button>
   </header>
 
   <main>
@@ -36,10 +37,23 @@
         <p>Built a small wind turbine that powers an LED. Not much, but a proud moment.</p>
       </article>
     </section>
+
+    <section class="contact">
+      <h2>📬 Contact Me</h2>
+      <p>Instagram: <a href="https://instagram.com/yussss.4" target="_blank">@yussss.4</a></p>
+      <p>Email: <a href="mailto:bunksam177@gmail.com">bunksam177@gmail.com</a></p>
+    </section>
   </main>
 
   <footer>
     <p>© 2025 Yusralien | Follow your passion and fix your bolts!</p>
   </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("toggle-mode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
 </body>
 </html>
