@@ -34,6 +34,12 @@
       <p>Instagram: <a href="https://instagram.com/yussss.4" target="_blank">@yussss.4</a></p>
       <p>Email: <a href="mailto:bunksam177@gmail.com">bunksam177@gmail.com</a></p>
     </section>
+
+    <!-- New section for Survival Guide -->
+    <section>
+      <h2>📚 How I Survived My Mechanical Engineering Degree</h2>
+      <p><button id="survival-button">Read My Survival Guide</button></p>
+    </section>
   </main>
 
   <section class="hacker-tease">
@@ -44,6 +50,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const toggleButton = document.getElementById("toggle-mode");
       const hackerButton = document.getElementById("hacker-portal");
+      const survivalButton = document.getElementById("survival-button");
 
       toggleButton.addEventListener("click", () => {
         document.body.classList.toggle("dark");
@@ -51,6 +58,10 @@
 
       hackerButton.addEventListener("click", () => {
         window.location.href = "cyber.html";
+      });
+
+      survivalButton.addEventListener("click", () => {
+        window.location.href = "survival.html";
       });
     });
   </script>
