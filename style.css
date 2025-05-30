@@ -1,4 +1,4 @@
-/* Reset & Fonts */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -11,26 +11,49 @@ body {
   background: #f2f5f9;
   color: #333;
   line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #121212;
+  color: #f0f0f0;
 }
 
 /* Header */
 header {
   background-color: #003366;
-  color: #fff;
+  color: white;
   padding: 2rem 1rem;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
 }
 
-/* Main Content */
+header button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ffffff22;
+  color: white;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+header button:hover {
+  background: #ffffff44;
+}
+
+/* Main Layout */
 main {
   max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
 }
 
-/* Sections */
-.intro {
+/* Intro and Blog Posts */
+.intro, .contact {
   background: #ffffff;
   padding: 1.5rem;
   border-radius: 12px;
@@ -38,6 +61,12 @@ main {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
+body.dark .intro,
+body.dark .contact {
+  background: #1e1e1e;
+}
+
+/* Vlogs */
 .vlog-post {
   background: #e6f0ff;
   padding: 1.2rem;
@@ -52,11 +81,32 @@ main {
   transform: translateY(-3px);
 }
 
+body.dark .vlog-post {
+  background: #2a3b4d;
+  border-left-color: #3399ff;
+}
+
+/* Contact */
+.contact a {
+  color: #0057b8;
+  text-decoration: none;
+}
+.contact a:hover {
+  text-decoration: underline;
+}
+
+body.dark .contact a {
+  color: #66ccff;
+}
+
 /* Footer */
 footer {
   text-align: center;
   padding: 1rem;
   color: #666;
   font-size: 0.9rem;
-  margin-top: 3rem;
+}
+
+body.dark footer {
+  color: #aaa;
 }
