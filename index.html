@@ -3,47 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Mechanical Engineering Life</title>
+  <title>Mechanical Engineering Chronicles | Yusralien</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>⚙️ My Mechanical Engineering Life</h1>
-    <p>By Yusralien | Student, Builder, Dreamer</p>
-    <button id="toggle-mode">🌙 Toggle Dark Mode</button>
+  <header class="site-header">
+    <div class="header-content">
+      <div class="branding">
+        <i class="fas fa-cogs logo-icon"></i>
+        <h1>Mechanical Engineering Chronicles</h1>
+      </div>
+      <p class="subtitle">A student's journey through gears, equations, and innovation</p>
+      <div class="header-controls">
+        <button id="toggle-mode" class="mode-toggle">
+          <i class="fas fa-moon"></i> Dark Mode
+        </button>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>📚 What I Learn</h2>
-      <ul>
-        <li>Mechanical design & CAD</li>
-        <li>Thermodynamics and fluid flow</li>
-        <li>Machine learning for CNC automation</li>
-        <li>Control systems and robotics</li>
-      </ul>
+  <main class="container">
+    <section id="about" class="card">
+      <div class="section-header">
+        <i class="fas fa-user-graduate section-icon"></i>
+        <h2>About The Engineer</h2>
+      </div>
+      <div class="content-grid">
+        <div class="content-text">
+          <p>Hello! I'm Yusralien, a mechanical engineering student passionate about the intersection of traditional mechanics and modern technology.</p>
+          <p>This blog documents my academic journey, personal projects, and the lessons I've learned navigating one of the most challenging engineering disciplines.</p>
+          <div class="expertise">
+            <h3>Areas of Focus:</h3>
+            <ul class="expertise-list">
+              <li><i class="fas fa-cube"></i> Mechanical Design & CAD</li>
+              <li><i class="fas fa-fire"></i> Thermodynamics & Fluid Dynamics</li>
+              <li><i class="fas fa-robot"></i> Automation & Control Systems</li>
+              <li><i class="fas fa-brain"></i> AI/ML for Mechanical Applications</li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-image">
+          <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a9d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Engineering workspace" class="profile-image">
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>🔧 Projects</h2>
-      <p>I'm building small CNC machines and integrating AI to make smarter tool paths.</p>
+    <section id="projects" class="card">
+      <div class="section-header">
+        <i class="fas fa-project-diagram section-icon"></i>
+        <h2>Current Projects</h2>
+      </div>
+      <div class="project">
+        <h3>AI-Enhanced CNC Machine Development</h3>
+        <p>Building compact CNC machines with intelligent tool path optimization using machine learning algorithms to improve precision and efficiency.</p>
+        <div class="project-details">
+          <div class="tech-stack">
+            <span class="tech-tag"><i class="fas fa-microchip"></i> Arduino</span>
+            <span class="tech-tag"><i class="fas fa-code"></i> Python</span>
+            <span class="tech-tag"><i class="fas fa-cube"></i> Fusion 360</span>
+          </div>
+          <button class="project-button">View Project Details</button>
+        </div>
+      </div>
+      <div class="project">
+        <h3>Thermodynamics Simulation Toolkit</h3>
+        <p>Developing educational simulation tools to help students visualize and understand complex thermodynamic concepts.</p>
+        <div class="project-details">
+          <div class="tech-stack">
+            <span class="tech-tag"><i class="fas fa-laptop-code"></i> MATLAB</span>
+            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+          </div>
+          <button class="project-button">Coming Soon</button>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>📬 Contact Me</h2>
-      <p>Instagram: <a href="https://instagram.com/yussss.4" target="_blank">@yussss.4</a></p>
-      <p>Email: <a href="mailto:bunksam177@gmail.com">bunksam177@gmail.com</a></p>
+    <section id="resources" class="card">
+      <div class="section-header">
+        <i class="fas fa-book-open section-icon"></i>
+        <h2>Student Resources</h2>
+      </div>
+      <div class="resource-highlight">
+        <div class="resource-content">
+          <h3>Survival Guide for Mech Eng Students</h3>
+          <p>After years of navigating the challenges of mechanical engineering education, I've compiled my hard-earned wisdom into this comprehensive guide.</p>
+          <p>Learn how to handle difficult courses, manage group projects, and maintain your sanity through the toughest semesters.</p>
+          <button id="survival-button" class="cta-button">
+            <i class="fas fa-graduation-cap"></i> Read My Survival Guide
+          </button>
+        </div>
+        <div class="resource-image">
+          <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Engineering tools" class="resource-img">
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>📚 How I Survived My Mechanical Engineering Degree</h2>
-      <p><button id="survival-button">Read My Survival Guide</button></p>
+    <section id="contact" class="card">
+      <div class="section-header">
+        <i class="fas fa-envelope section-icon"></i>
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-methods">
+        <div class="contact-card">
+          <i class="fab fa-instagram contact-icon"></i>
+          <h3>Instagram</h3>
+          <p>Follow for project updates and daily engineering life</p>
+          <a href="https://instagram.com/yussss.4" target="_blank" class="social-link">@yussss.4</a>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-envelope contact-icon"></i>
+          <h3>Email</h3>
+          <p>For collaborations and inquiries</p>
+          <a href="mailto:bunksam177@gmail.com" class="social-link">bunksam177@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-comment-dots contact-icon"></i>
+          <h3>Blog Feedback</h3>
+          <p>Suggestions or topic requests</p>
+          <button class="feedback-button">Leave Feedback</button>
+        </div>
+      </div>
     </section>
   </main>
 
-  <section class="hacker-tease">
-    <button id="hacker-portal">🚫 Don't click here</button>
-  </section>
+  <div class="easter-egg">
+    <button id="hacker-portal" class="easter-egg-button">
+      <i class="fas fa-user-secret"></i> Engineering Secrets Portal
+    </button>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2023 Mechanical Engineering Chronicles | Yusralien</p>
+    <p>Powered by caffeine and sheer determination</p>
+  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -53,6 +154,16 @@
 
       toggleButton.addEventListener("click", () => {
         document.body.classList.toggle("dark");
+        const icon = toggleButton.querySelector('i');
+        if (document.body.classList.contains("dark")) {
+          icon.classList.replace("fa-moon", "fa-sun");
+          toggleButton.textContent = " Light Mode";
+          toggleButton.prepend(icon);
+        } else {
+          icon.classList.replace("fa-sun", "fa-moon");
+          toggleButton.textContent = " Dark Mode";
+          toggleButton.prepend(icon);
+        }
       });
 
       hackerButton.addEventListener("click", () => {
