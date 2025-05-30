@@ -1,112 +1,63 @@
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* Body & Layout */
 body {
-  background: #f2f5f9;
-  color: #333;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background-color: #f0f0f0;
+  color: #111;
   transition: background 0.3s, color 0.3s;
 }
 
-body.dark {
-  background: #121212;
-  color: #f0f0f0;
+.dark {
+  background-color: #121212;
+  color: #f5f5f5;
 }
 
-/* Header */
 header {
-  background-color: #003366;
-  color: white;
-  padding: 2rem 1rem;
   text-align: center;
-  position: relative;
-}
-
-header button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #ffffff22;
-  color: white;
-  border: 1px solid #fff;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.3s;
-}
-
-header button:hover {
-  background: #ffffff44;
-}
-
-/* Main Layout */
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-/* Intro and Blog Posts */
-.intro, .contact {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 12px;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-body.dark .intro,
-body.dark .contact {
-  background: #1e1e1e;
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
-/* Vlogs */
-.vlog-post {
-  background: #e6f0ff;
-  padding: 1.2rem;
-  border-left: 5px solid #0057b8;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  transition: 0.3s;
+button:hover {
+  background-color: #555;
 }
 
-.vlog-post:hover {
-  background: #dbe9ff;
-  transform: translateY(-3px);
+main section {
+  margin-bottom: 2rem;
 }
 
-body.dark .vlog-post {
-  background: #2a3b4d;
-  border-left-color: #3399ff;
-}
-
-/* Contact */
-.contact a {
-  color: #0057b8;
-  text-decoration: none;
-}
-.contact a:hover {
+a {
+  color: inherit;
   text-decoration: underline;
 }
 
-body.dark .contact a {
-  color: #66ccff;
-}
-
-/* Footer */
-footer {
+.hacker-tease {
+  margin-top: 60px;
   text-align: center;
-  padding: 1rem;
-  color: #666;
-  font-size: 0.9rem;
 }
 
-body.dark footer {
-  color: #aaa;
+.hacker-tease button {
+  background-color: #ff4444;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hacker-tease button:hover {
+  background-color: #cc0000;
 }
