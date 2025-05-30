@@ -2,76 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Mechanical Life</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Mechanical Engineering Life</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>⚙️ My Mechanical Engineering Life</h1>
     <p>By Yusralien | Student, Builder, Dreamer</p>
-
-    <div style="margin-top: 10px;">
-       <button id="toggle-mode" style="margin-right: 10px;">🌙 Toggle Dark Mode</button>
-      <button id="hacker-portal">🚫 Don't click here</button>
-    </div>
+    <button id="toggle-mode">🌙 Toggle Dark Mode</button>
   </header>
 
   <main>
-    <section class="intro">
-      <h2>About Me</h2>
-      <p>
-        I'm a mechanical engineering student who loves gears, machines, and making ideas real. Welcome to my personal vlog where I share projects, challenges, and daily life!
-      </p>
+    <section>
+      <h2>📚 What I Learn</h2>
+      <ul>
+        <li>Mechanical design & CAD</li>
+        <li>Thermodynamics and fluid flow</li>
+        <li>Machine learning for CNC automation</li>
+        <li>Control systems and robotics</li>
+      </ul>
     </section>
 
-    <section class="vlogs">
-      <article class="vlog-post">
-        <h3><a href="cnc.html">🔧 CNC Machine Training</a></h3>
-        <p>My first time operating a CNC machine. Learned about G-code and precision cutting. 💥</p>
-      </article>
-
-      <article class="vlog-post">
-        <h3>📐 Thermodynamics Class</h3>
-        <p>Understanding energy flows and heat transfer. Tough subject, but I love the logic!</p>
-      </article>
-
-      <article class="vlog-post">
-        <h3>💡 Wind Turbine Project</h3>
-        <p>Built a small wind turbine that powers an LED. Not much, but a proud moment.</p>
-      </article>
+    <section>
+      <h2>🔧 Projects</h2>
+      <p>I'm building small CNC machines and integrating AI to make smarter tool paths.</p>
     </section>
 
-    <section class="contact">
+    <section>
       <h2>📬 Contact Me</h2>
       <p>Instagram: <a href="https://instagram.com/yussss.4" target="_blank">@yussss.4</a></p>
       <p>Email: <a href="mailto:bunksam177@gmail.com">bunksam177@gmail.com</a></p>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Yusralien | Follow your passion and fix your bolts!</p>
-  </footer>
+  <section class="hacker-tease">
+    <button id="hacker-portal">🚫 Don't click here</button>
+  </section>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Dark mode toggle
       document.getElementById("toggle-mode").addEventListener("click", () => {
         document.body.classList.toggle("dark");
+      });
+
+      // Redirect to secret hacker page
+      document.getElementById("hacker-portal").addEventListener("click", () => {
+        window.location.href = "cyber.html";
       });
     });
   </script>
 </body>
 </html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("toggle-mode").addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-    });
-
-    document.getElementById("hacker-portal").addEventListener("click", () => {
-      window.location.href = "cyber.html";
-    });
-  });
-</script>
-
