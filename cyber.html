@@ -3,47 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>root@yusralien:~#</title>
+  <title>Red Team Terminal</title>
   <style>
     :root {
-      --primary: #00ff41;
-      --bg: #0d0208;
-      --secondary: #008f11;
+      --hacker-green: #00ff41;
+      --ubuntu-purple: #2C001E;
+      --terminal-bg: #0d0208;
+      --prompt-blue: #729FCF;
     }
     
     body {
-      background: var(--bg);
-      color: var(--primary);
-      font-family: 'SF Mono', 'Courier New', monospace;
+      background-color: var(--terminal-bg);
+      color: var(--hacker-green);
+      font-family: 'Ubuntu Mono', monospace;
       line-height: 1.6;
       margin: 0;
       padding: 2rem;
-      overflow-x: hidden;
     }
     
-    #terminal {
+    .terminal {
       max-width: 800px;
       margin: 0 auto;
-      border-left: 1px solid var(--secondary);
-      padding-left: 1rem;
+      border-left: 1px solid var(--hacker-green);
+      padding-left: 1.5rem;
+    }
+    
+    .command {
+      margin-bottom: 1.5rem;
     }
     
     .prompt {
-      color: var(--primary);
+      color: var(--prompt-blue);
       font-weight: bold;
-    }
-    
-    .prompt::before {
-      content: "root@yusralien:~#";
-      color: var(--secondary);
-      margin-right: 0.5rem;
     }
     
     .cursor {
       display: inline-block;
       width: 10px;
       height: 1.2rem;
-      background: var(--primary);
+      background: var(--hacker-green);
       animation: blink 1s infinite;
       vertical-align: middle;
     }
@@ -53,83 +51,69 @@
       50% { opacity: 0; }
     }
     
-    a {
-      color: var(--primary);
+    .linux-box {
+      display: block;
+      margin: 2rem 0;
+      padding: 1rem;
+      border: 1px dashed var(--hacker-green);
+      transition: all 0.3s;
+      cursor: pointer;
       text-decoration: none;
-      border-bottom: 1px dashed var(--secondary);
-      transition: 0.2s;
+      color: var(--hacker-green);
     }
     
-    a:hover {
-      border-bottom: 1px solid var(--primary);
-      text-shadow: 0 0 5px var(--primary);
+    .linux-box:hover {
+      background: rgba(0, 255, 65, 0.05);
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+      border-style: solid;
+    }
+    
+    .linux-title {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .linux-desc {
+      color: var(--prompt-blue);
+      font-size: 0.9rem;
     }
     
     footer {
       margin-top: 3rem;
       font-size: 0.8rem;
       text-align: center;
-      opacity: 0.7;
+      color: #555;
     }
-    
-    /* Optional: Typewriter effect for first load */
-    #header {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid var(--primary);
-      animation: typing 3s steps(40), blink-caret 0.75s step-end infinite;
-    }
-    
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--primary) } }
   </style>
 </head>
 <body>
-  <div id="terminal">
-    <!-- Header with typewriter effect -->
-    <div id="header">
-      <h1>ACCESS GRANTED</h1>
-    </div>
-
-    <!-- Minimalist terminal content -->
+  <div class="terminal">
     <div class="command">
-      <p><span class="prompt"></span>whoami</p>
-      <p>yusralien@redteam:~$ <span class="cursor"></span></p>
+      <p><span class="prompt">root@redteam:~#</span> whoami</p>
+      <p>yusralien - Red Team Operator | Security Researcher</p>
     </div>
-
-    <!-- Add your POC/blog content here -->
+    
     <div class="command">
-      <p><span class="prompt"></span>cat /var/log/poc.txt</p>
-      <p>> [REDACTED] CVE-2023-XXXX: Proof of Concept</p>
-      <p>> [REDACTED] Zero-Day Exploit Demo</p>
-      <p>> [REDACTED] Network Penetration Findings</p>
+      <p><span class="prompt">root@redteam:~#</span> system_profiler</p>
+      <p>> OS: Kali Linux 2023.4</p>
+      <p>> Tools: Metasploit, Burp Suite, Ghidra</p>
     </div>
-
-    <!-- Dynamic last command line -->
+    
+    <!-- Clickable VirtualBox Section -->
+    <a href="Linux1.html" class="linux-box">
+      <div class="linux-title">VirtualBox on Ubuntu~Linux</div>
+      <div class="linux-desc">Click to view installation and configuration guide</div>
+    </a>
+    
     <div class="command">
-      <p><span class="prompt"></span><span class="cursor"></span></p>
+      <p><span class="prompt">root@redteam:~#</span> <span class="cursor"></span></p>
     </div>
   </div>
-
+  
   <footer>
-    <p><a href="index.html">[CTRL+ALT+DEL] EXIT</a> | <a href="https://github.com/Yusralien" target="_blank">[GITHUB]</a></p>
-    <p>Session ID: <span id="session-id">5F4A8D2E</span> | Uptime: <span id="uptime">00:00:00</span></p>
+    <p><a href="index.html">← Terminate Session</a> | <a href="https://github.com/Yusralien">GitHub</a></p>
+    <p>Connection active • Session ID: 5F4A8D2E</p>
   </footer>
-
-  <script>
-    // Dynamic uptime counter
-    let seconds = 0;
-    setInterval(() => {
-      seconds++;
-      const hrs = Math.floor(seconds / 3600).toString().padStart(2, '0');
-      const mins = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
-      const secs = (seconds % 60).toString().padStart(2, '0');
-      document.getElementById('uptime').textContent = `${hrs}:${mins}:${secs}`;
-    }, 1000);
-
-    // Randomize session ID on load
-    document.getElementById('session-id').textContent = 
-      Math.random().toString(16).substring(2, 10).toUpperCase();
-  </script>
 </body>
 </html>
