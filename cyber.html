@@ -3,44 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Access Granted - Cybersecurity</title>
-  <link rel="stylesheet" href="cyber-style.css">
+  <title>[root@localhost] ~# Access Granted</title>
+  <style>
+    :root {
+      --hacker-green: #20C20E;
+      --terminal-bg: #0A0A0A;
+      --terminal-border: #333;
+    }
+    
+    body {
+      background-color: #000;
+      color: var(--hacker-green);
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    
+    header {
+      border-bottom: 1px dashed var(--hacker-green);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      color: var(--hacker-green);
+    }
+    
+    .terminal {
+      background-color: var(--terminal-bg);
+      border: 1px solid var(--terminal-border);
+      border-radius: 3px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(32, 194, 14, 0.2);
+      margin-bottom: 30px;
+    }
+    
+    .command-line {
+      margin-bottom: 15px;
+    }
+    
+    .prompt {
+      color: var(--hacker-green);
+      font-weight: bold;
+    }
+    
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 15px;
+      background-color: var(--hacker-green);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+    
+    @keyframes blink {
+      from, to { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 5px;
+    }
+    
+    li:before {
+      content: "[+] ";
+      color: var(--hacker-green);
+    }
+    
+    a {
+      color: var(--hacker-green);
+      text-decoration: none;
+      transition: text-shadow 0.3s;
+    }
+    
+    a:hover {
+      text-shadow: 0 0 5px var(--hacker-green);
+    }
+    
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    /* Matrix rain effect */
+    .matrix-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
+  <!-- Optional: Add this if you want matrix rain in background -->
+  <!-- <canvas id="matrix-rain" class="matrix-rain"></canvas> -->
+
   <header>
-    <h1>💻 Access Granted: Welcome to My Cybersecurity Life</h1>
-    <p>Red Team | White Hat Hacking | Cyber Operations</p>
+    <h1>[root@localhost] ~# ACCESS GRANTED</h1>
+    <p>RED TEAM OPERATIONS | PENETRATION TESTING | THREAT SIMULATION</p>
   </header>
 
   <section class="terminal">
     <div class="command-line">
-      <p><strong>log@cyber_shell:</strong>~$ whoami</p>
-      <p>Yusralien - Red Teamer | Ethical Hacker</p>
+      <p><span class="prompt">[yusralien@redteam]</span> ~$ whoami</p>
+      <p>yusralien - Red Team Operator | Security Researcher | Threat Emulation Specialist</p>
     </div>
 
     <div class="command-line">
-      <p><strong>log@cyber_shell:</strong>~$ cat mission.txt</p>
-      <p>Mission: Penetration Testing, Cyber Defense, and Network Exploits</p>
-    </div>
-
-    <div class="command-line">
-      <p><strong>log@cyber_shell:</strong>~$ skills --list</p>
+      <p><span class="prompt">[yusralien@redteam]</span> ~$ cat /etc/mission</p>
+      <p>Primary Objective: Simulate advanced persistent threats to strengthen organizational security</p>
+      <p>Secondary Objectives:</p>
       <ul>
-        <li>🛡️ Network Pen Testing</li>
-        <li>🔍 Vulnerability Assessment</li>
-        <li>💻 Exploit Development</li>
-        <li>🔐 Cyber Defense & Encryption</li>
+        <li>Penetration Testing & Vulnerability Research</li>
+        <li>Adversary Emulation & Purple Teaming</li>
+        <li>Security Posture Assessment</li>
       </ul>
     </div>
 
     <div class="command-line">
-      <p><strong>log@cyber_shell:</strong>~$ <span class="cursor"></span></p>
+      <p><span class="prompt">[yusralien@redteam]</span> ~$ ./skills --list --verbose</p>
+      <ul>
+        <li>Network Exploitation & Post-Exploitation</li>
+        <li>Custom Payload Development (C, Python, PowerShell)</li>
+        <li>Advanced Evasion Techniques</li>
+        <li>Threat Intelligence & TTP Development</li>
+        <li>Red Team Infrastructure Development</li>
+        <li>Social Engineering & Physical Security Testing</li>
+      </ul>
+    </div>
+
+    <div class="command-line">
+      <p><span class="prompt">[yusralien@redteam]</span> ~$ <span class="cursor"></span></p>
     </div>
   </section>
 
   <footer>
-    <p><a href="index.html">← Exit Terminal</a></p>
-    <p>View my full journey and progress logs on <a href="https://github.com/Yusralien/Journey-of-eliteghostv3" target="_blank">GitHub</a></p>
+    <p><a href="index.html">← [CTRL+C] TERMINATE SESSION</a></p>
+    <p>View operational logs and tools at <a href="https://github.com/Yusralien/Journey-of-eliteghostv3" target="_blank">[REDACTED GITHUB REPO]</a></p>
+    <p style="color: #555; margin-top: 20px;">Connection active. Session ID: 5F4A8D2E. Time: <span id="session-time">00:00:00</span></p>
   </footer>
+
+  <script>
+    // Session timer
+    let seconds = 0;
+    setInterval(() => {
+      seconds++;
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+      document.getElementById('session-time').textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }, 1000);
+
+    // Uncomment to enable matrix rain (add canvas element first)
+    /*
+    const canvas = document.getElementById('matrix-rain');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+    const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+    
+    const alphabet = katakana + latin + nums + symbols;
+    
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    
+    const rainDrops = [];
+    
+    for (let x = 0; x < columns; x++) {
+      rainDrops[x] = 1;
+    }
+    
+    const draw = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+      
+      for (let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+        
+        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+      }
+    };
+    
+    setInterval(draw, 30);
+    */
+  </script>
 </body>
 </html>
