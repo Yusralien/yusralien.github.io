@@ -1,288 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VirtualBox on Ubuntu | Red Team Guide</title>
-    <style>
-        :root {
-            --matrix-green: #00ff41;
-            --hacker-dark: #0a0a0a;
-            --terminal-bg: #121212;
-            --code-bg: #1e1e1e;
-            --hacker-purple: #9d00ff;
-            --hacker-blue: #00b4ff;
-        }
-        
-        body {
-            font-family: 'Courier New', monospace;
-            line-height: 1.6;
-            color: var(--matrix-green);
-            background-color: var(--hacker-dark);
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 30px;
-            background-image: 
-                radial-gradient(circle at 15% 30%, rgba(0, 180, 255, 0.03) 0%, transparent 25%),
-                radial-gradient(circle at 85% 70%, rgba(157, 0, 255, 0.03) 0%, transparent 25%);
-        }
-        
-        header {
-            text-align: center;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--matrix-green);
-            border-radius: 0;
-            background-color: rgba(0, 255, 65, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, 
-                    transparent 0%, 
-                    rgba(0, 255, 65, 0.1) 50%, 
-                    transparent 100%);
-            animation: scanline 8s linear infinite;
-        }
-        
-        @keyframes scanline {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-        
-        h1 {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            font-size: 2.2rem;
-            margin: 0 0 0.5rem;
-            text-shadow: 0 0 10px var(--matrix-green);
-            letter-spacing: 2px;
-            position: relative;
-        }
-        
-        h2 {
-            color: var(--hacker-blue);
-            border-bottom: 1px dashed var(--matrix-green);
-            padding-bottom: 0.5rem;
-            margin-top: 3rem;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        h3 {
-            color: var(--hacker-purple);
-        }
-        
-        code {
-            font-family: 'Courier New', monospace;
-            background-color: var(--code-bg);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            color: var(--matrix-green);
-            font-size: 0.9em;
-            border: 1px solid #333;
-        }
-        
-        pre {
-            background-color: var(--code-bg);
-            padding: 1.5rem;
-            border-radius: 0;
-            overflow-x: auto;
-            border-left: 4px solid var(--matrix-green);
-            font-size: 0.95em;
-            margin: 1.5rem 0;
-            position: relative;
-        }
-        
-        pre::before {
-            content: ">_";
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 0.2rem 0.5rem;
-            background-color: var(--matrix-green);
-            color: black;
-            font-weight: bold;
-        }
-        
-        a {
-            color: var(--hacker-blue);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-bottom: 1px dotted var(--hacker-blue);
-        }
-        
-        a:hover {
-            color: var(--matrix-green);
-            text-shadow: 0 0 5px var(--matrix-green);
-            border-bottom-color: var(--matrix-green);
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #333;
-            margin: 2rem 0;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        img:hover {
-            border-color: var(--matrix-green);
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
-        }
-        
-        .step {
-            background-color: var(--terminal-bg);
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            border: 1px solid #333;
-            position: relative;
-        }
-        
-        .step::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(135deg, 
-                    transparent 0%, 
-                    rgba(0, 255, 65, 0.03) 50%, 
-                    transparent 100%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .note {
-            background-color: rgba(0, 180, 255, 0.1);
-            border-left: 4px solid var(--hacker-blue);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            position: relative;
-        }
-        
-        .note::before {
-            content: "[!]";
-            position: absolute;
-            left: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--hacker-blue);
-            font-weight: bold;
-        }
-        
-        .success {
-            text-align: center;
-            padding: 3rem 2rem;
-            background-color: rgba(0, 255, 65, 0.05);
-            border: 1px dashed var(--matrix-green);
-            margin-top: 3rem;
-            position: relative;
-        }
-        
-        .success h2 {
-            color: var(--matrix-green);
-            border-bottom: none;
-            font-size: 2rem;
-            text-shadow: 0 0 15px var(--matrix-green);
-        }
-        
-        .btn-download {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: transparent;
-            color: var(--matrix-green);
-            border: 1px solid var(--matrix-green);
-            text-decoration: none;
-            margin: 1rem 0;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        .btn-download:hover {
-            background-color: var(--matrix-green);
-            color: black;
-            text-shadow: none;
-            box-shadow: 0 0 20px var(--matrix-green);
-        }
-        
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--matrix-green), transparent);
-            margin: 3rem 0;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            .step {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Team Terminal</title>
+  <style>
+    :root {
+      --hacker-green: #00ff41;
+      --ubuntu-purple: #2C001E;
+      --terminal-bg: #0d0208;
+      --prompt-blue: #729FCF;
+    }
+    
+    body {
+      background-color: var(--terminal-bg);
+      color: var(--hacker-green);
+      font-family: 'Ubuntu Mono', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 2rem;
+    }
+    
+    .terminal {
+      max-width: 800px;
+      margin: 0 auto;
+      border-left: 1px solid var(--hacker-green);
+      padding-left: 1.5rem;
+    }
+    
+    .command {
+      margin-bottom: 1.5rem;
+    }
+    
+    .prompt {
+      color: var(--prompt-blue);
+      font-weight: bold;
+    }
+    
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1.2rem;
+      background: var(--hacker-green);
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .linux-box {
+      display: block;
+      margin: 2rem 0;
+      padding: 1rem;
+      border: 1px dashed var(--hacker-green);
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--hacker-green);
+    }
+    
+    .linux-box:hover {
+      background: rgba(0, 255, 65, 0.05);
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+      border-style: solid;
+    }
+    
+    .linux-title {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .linux-desc {
+      color: var(--prompt-blue);
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>VIRTUALBOX ON UBUNTU</h1>
-        <p style="letter-spacing: 3px; color: var(--hacker-blue);">RED TEAM INSTALLATION GUIDE</p>
-    </header>
-
-    <div class="step">
-        <h2>1. DOWNLOAD VIRTUALBOX</h2>
-        <p>>_ Begin by acquiring the package:</p>
-        <a href="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb" target="_blank" class="btn-download">
-            [DOWNLOAD VIRTUALBOX 7.0.12]
-        </a>
-        <div class="note">
-            <strong>NOTE:</strong> Use the <strong>Ubuntu 22.04 (Jammy)</strong> version even on Ubuntu 23.10 for compatibility
-        </div>
-        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/45ccec85-e294-4211-a623-8585f316bb05" alt="VirtualBox download page">
+  <div class="terminal">
+    <div class="command">
+      <p><span class="prompt">root@redteam:~#</span> whoami</p>
+      <p>yusralien - Red Team Operator | Security Researcher</p>
     </div>
-
-    <hr>
-
-    <div class="step">
-        <h2>2. TERMINAL INSTALLATION</h2>
-        <p>>_ Execute these commands in your terminal:</p>
-        <pre><code>cd ~/Downloads
-sudo dpkg -i virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb</code></pre>
-        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/a7e78064-232a-4382-8772-7a01c6323d6e" alt="Terminal installation screenshot">
+    
+    <div class="command">
+      <p><span class="prompt">root@redteam:~#</span> system_profiler</p>
+      <p>> OS: Kali Linux 2023.4</p>
+      <p>> Tools: Metasploit, Burp Suite, Ghidra</p>
     </div>
-
-    <hr>
-
-    <div class="step">
-        <h2>3. DEPENDENCY RESOLUTION</h2>
-        <p>>_ If you encounter errors, run this repair command:</p>
-        <pre><code>sudo apt -f install</code></pre>
-        <p>This will automatically fix any missing dependencies.</p>
-        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/66d229c6-3f24-47fc-9bd8-104dd43583a1" alt="Dependency fix screenshot">
+    
+    <!-- Clickable VirtualBox Section -->
+    <a href="Linux1.html" class="linux-box">
+      <div class="linux-title">VirtualBox on Ubuntu~Linux</div>
+      <div class="linux-desc">Click to view installation and configuration guide</div>
+    </a>
+    
+    <div class="command">
+      <p><span class="prompt">root@redteam:~#</span> <span class="cursor"></span></p>
     </div>
-
-    <div class="success">
-        <h2>INSTALLATION COMPLETE</h2>
-        <p style="font-size: 1.2em;">>_ VirtualBox is now operational on your system</p>
-        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/5baf0708-dca1-4e59-8d7f-2213598d590a" alt="VirtualBox running screenshot" style="max-width: 600px;">
-        <p style="margin-top: 2rem;">[ SYSTEM READY FOR VIRTUALIZATION ]</p>
-        <p style="color: var(--hacker-purple); margin-top: 1rem;">// Happy hacking //</p>
-    </div>
+  </div>
+  
+  <footer>
+    <p><a href="index.html">← Terminate Session</a> | <a href="https://github.com/Yusralien">GitHub</a></p>
+    <p>Connection active • Session ID: 5F4A8D2E</p>
+  </footer>
 </body>
 </html>
