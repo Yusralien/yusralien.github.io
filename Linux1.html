@@ -1,18 +1,147 @@
-<h1 id="virtual-box-on-ubuntu">Virtual-Box-on-ubuntu</h1>
-<p>How to install virtual box on ubuntu 23.10 <code>easy-peasy</code></p>
-<hr>
-<h3 id="install-virtualbox">Install VirtualBox</h3>
-<p>You can get the VirtualBox from this <a href="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb">link</a></p>
-<p><img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/assets/87742813/45ccec85-e294-4211-a623-8585f316bb05" alt="cursorvb"></p>
-<p>Download the ubuntu 22.04 version</p>
-<h3 id="terminal-setup">Terminal Setup</h3>
-<p>Open directory at where your debian ubuntu package was installed. You also can locate your file by using the command <code>locate virtualbox</code>.</p>
-<p>Once you found your directory, run the command <code>sudo dpkg -i (ur file name)</code> and hit enter.</p>
-<p><img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/assets/87742813/a7e78064-232a-4382-8772-7a01c6323d6e" alt="sudodpkg"></p>
-<h3 id="error-">Error?</h3>
-<p>If you somehow got error at dpkg dependencies/package or any error related to &quot;dpkg&quot;..Dont panic.</p>
-<p>You can simply run this command and hit enter <code>sudo apt -f install</code></p>
-<p><img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/assets/87742813/66d229c6-3f24-47fc-9bd8-104dd43583a1" alt="apt-f"></p>
-<h3 id="yeayy-u-got-your-virtualbox">Yeayy u got your virtualbox</h3>
-<p>If you succes on ur virtualbox installation, i wish you all the best and happy go lucky.</p>
-<p><img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/assets/87742813/5baf0708-dca1-4e59-8d7f-2213598d590a" alt="ssvb"></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualBox on Ubuntu | Installation Guide</title>
+    <style>
+        :root {
+            --ubuntu-orange: #E95420;
+            --ubuntu-light: #F8F8F8;
+            --ubuntu-dark: #2C001E;
+            --code-bg: #F5F5F5;
+            --border-color: #DEDEDE;
+        }
+        
+        body {
+            font-family: 'Ubuntu', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--ubuntu-light);
+        }
+        
+        header {
+            background-color: var(--ubuntu-dark);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: var(--ubuntu-orange);
+            margin-top: 0;
+        }
+        
+        h2, h3 {
+            color: var(--ubuntu-dark);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Ubuntu Mono', monospace;
+        }
+        
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        a {
+            color: var(--ubuntu-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .note {
+            background-color: #E8F4F8;
+            border-left: 4px solid #4CAFCE;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .step {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .success {
+            text-align: center;
+            padding: 2rem;
+            background-color: #E8F8E8;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>VirtualBox on Ubuntu 23.10</h1>
+        <p>A complete guide to installing and configuring VirtualBox on Ubuntu</p>
+    </header>
+
+    <div class="step">
+        <h2 id="install-virtualbox">1. Install VirtualBox</h2>
+        <p>Download the appropriate VirtualBox package for Ubuntu:</p>
+        <a href="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb" target="_blank">
+            Download VirtualBox 7.0.12 for Ubuntu
+        </a>
+        <p><em>Note: Download the Ubuntu 22.04 (Jammy) version even if you're on 23.10</em></p>
+        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/45ccec85-e294-4211-a623-8585f316bb05" alt="VirtualBox download page">
+    </div>
+
+    <div class="step">
+        <h2 id="terminal-setup">2. Terminal Setup</h2>
+        <p>Navigate to your download directory and install the package:</p>
+        <pre><code>cd ~/Downloads
+sudo dpkg -i virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb</code></pre>
+        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/a7e78064-232a-4382-8772-7a01c6323d6e" alt="Terminal showing dpkg command">
+    </div>
+
+    <div class="step">
+        <h2 id="error-">3. Troubleshooting</h2>
+        <p>If you encounter dependency errors:</p>
+        <pre><code>sudo apt -f install</code></pre>
+        <p>This will fix any missing dependencies automatically.</p>
+        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/66d229c6-3f24-47fc-9bd8-104dd43583a1" alt="Terminal showing apt -f install">
+        <div class="note">
+            <strong>Pro Tip:</strong> You can also install VirtualBox from the Ubuntu repositories with 
+            <code>sudo apt install virtualbox</code>, but it may not be the latest version.
+        </div>
+    </div>
+
+    <div class="success">
+        <h2 id="yeayy-u-got-your-virtualbox">Installation Complete!</h2>
+        <p>Congratulations! VirtualBox is now ready to use on your Ubuntu system.</p>
+        <img src="https://github.com/Yusralien/Virtual-Box-on-ubuntu/raw/main/assets/5baf0708-dca1-4e59-8d7f-2213598d590a" alt="VirtualBox running on Ubuntu">
+        <p>Happy virtualizing! You can now create your first virtual machine.</p>
+    </div>
+</body>
+</html>
